@@ -1,0 +1,79 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" swipe-gesture="false">
+      <ion-header>
+        <ion-row class="ion-padding">
+          <ion-col size="11">
+            <div class="ion-text-center">
+              <ion-img src="https://www.impaxivesolutions.com/images/logo.png" style="height: 50px;"></ion-img>
+            </div>
+          </ion-col>
+          <ion-col size="1">
+            <div class="ion-text-right">
+              <ion-icon name="chevron-forward-outline" size="large" (click)="dismis()" color="dark" style="margin-top: 12px;"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" routerLink="/home" class="ion-margin-top">
+              <ion-icon name="home" slot="start" color="dark"></ion-icon>
+              <ion-label>Home</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" routerLink="/manage-therapy" class="ion-margin-top">
+              <ion-icon name="medkit" slot="start" color="dark"></ion-icon>
+              <ion-label>Therapies</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" routerLink="/manage-therapists" class="ion-margin-top">
+              <ion-icon name="people" slot="start" color="dark"></ion-icon>
+              <ion-label>Therapists</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" routerLink="/manage-children" class="ion-margin-top">
+              <ion-icon name="body" slot="start" color="dark"></ion-icon>
+              <ion-label>Students</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" routerLink="/manage-goals" class="ion-margin-top">
+              <ion-icon name="bulb" slot="start" color="dark"></ion-icon>
+              <ion-label>Goals</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" routerLink="/progress-report" class="ion-margin-top">
+              <ion-icon name="pie-chart" slot="start" color="dark"></ion-icon>
+              <ion-label>Progress Report</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" routerLink="/update-goals" class="ion-margin-top">
+              <ion-icon name="pie-chart" slot="start" color="dark"></ion-icon>
+              <ion-label>Progress Update</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item lines="none" routerLink="/insights" class="ion-margin-top">
+              <ion-icon name="eye" slot="start" color="dark"></ion-icon>
+              <ion-label>Insights</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false" (click)="logout()">
+            <ion-item lines="none" class="ion-margin-top">
+              <ion-icon name="power" slot="start" color="dark"></ion-icon>
+              <ion-label>Logout</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

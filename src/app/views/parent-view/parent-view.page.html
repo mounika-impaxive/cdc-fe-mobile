@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600; color: #258383;">Child Progress</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        <ion-text>Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ion-margin-top">
+    <ion-item routerLink="/parent-insight">
+      <ion-label>
+        <h2 style="color: #258383;">Progress Report - 18 Feb</h2>
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item routerLink="/parent-insight">
+      <ion-label>
+        <h2 style="color: #258383;">Progress Report - 19 Feb</h2>
+        <!-- <p>Report - 19 Feb</p> -->
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item routerLink="/parent-insight">
+      <ion-label>
+        <h2 style="color: #258383;">Progress Report - 20 Feb</h2>
+        <!-- <p>Report - 20 Feb</p> -->
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

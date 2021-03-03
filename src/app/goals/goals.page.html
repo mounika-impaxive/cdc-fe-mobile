@@ -1,0 +1,120 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #258383">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600;" color="light">Create Goal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/manage-goals">
+        <ion-icon color="light" name="chevron-back-outline"></ion-icon>
+        <ion-text color="light">Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-padding">
+    <ion-col size="12">
+      <ion-title class="title">Title</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Title"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Description</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Description"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Assign Goal To</ion-title>
+      <ion-item>
+        <ionic-selectable
+        placeholder="Select a student"
+        [(ngModel)]="port"
+        [items]="ports"
+        [isMultiple]="true"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true"
+        (onChange)="portChange($event)">
+          <ng-template ionicSelectableValueTemplate let-ports="value">
+            <div class="ionic-selectable-value-item">
+              {{formatPorts(ports)}}
+            </div>
+          </ng-template>
+        </ionic-selectable>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-item>
+        <ion-datetime mode="ios" placeholder="Start Date"></ion-datetime>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-item>
+        <ion-datetime mode="ios" placeholder="Target Date"></ion-datetime>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" style="padding-left: 0px;">
+      <ion-list>
+        <ion-radio-group>
+          <ion-row class="mile">
+            <ion-col>
+              <ion-item>
+                <ion-label class="label">Milestones</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item (click)="showMile()">
+                <ion-label style="font-size: 15px;">Yes</ion-label>
+                <ion-radio color="add" slot="start" value="yes" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item (click)="clearMile()">
+                <ion-label style="font-size: 15px;">No</ion-label>
+                <ion-radio color="add" slot="start" value="no" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
+    </ion-col>
+    <div *ngIf="milestone == true" style="width: 100%;">
+      <ion-row *ngFor="let data of mileInfo | slice:0:4; let i = index">
+        <ion-col size="11">
+          <ion-title class="title">Milestone Title</ion-title>
+          <ion-item>
+            <ion-input name="milestone_title_{{data.id}}" [(ngModel)]="data.milestone_title" placeholder="Enter Milestone Title"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="1" *ngIf="i == 0" (click)="addMile()">
+          <ion-icon name="add-outline" size="large" style="margin-top: 12px; color: #258383;"></ion-icon>
+        </ion-col>
+        <ion-col size="1" *ngIf="i != 0" (click)="removeMile(i)">
+          <ion-icon name="close-outline" size="large" style="margin-top: 12px; color: #258383;"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-datetime mode="ios" name="start_date_{{data.id}}" [(ngModel)]="data.start_date" placeholder="Start Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-datetime mode="ios" name="target_date_{{data.id}}" [(ngModel)]="data.target_date" placeholder="Target Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="color: white; --background: #258383" (click)="createGoal()">
+    <div class="ion-text-center">
+      <ion-title style="font-weight: 600;">Create</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-footer>

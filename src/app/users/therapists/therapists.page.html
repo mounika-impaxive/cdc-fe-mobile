@@ -1,0 +1,112 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #258383">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600;" color="light">Create Therapist</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home">
+        <ion-icon color="light" name="chevron-back-outline"></ion-icon>
+        <ion-text color="light">Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-padding">
+    <ion-col size="12">
+      <ion-title class="title">Name</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Therapist Name" [(ngModel)]="therapistData.name"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Designation</ion-title>
+      <ion-item>
+        <ion-input placeholder="Designation" [(ngModel)]="therapistData.designation"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Specialisation</ion-title>
+      <ion-item>
+        <ion-input placeholder="Specialisation" [(ngModel)]="therapistData.specialisation"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" style="padding-left: 0px;">
+      <ion-list>
+        <ion-radio-group>
+          <ion-row class="mile">
+            <ion-col>
+              <ion-item>
+                <ion-label class="label">Gender</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label style="font-size: 15px;">Male</ion-label>
+                <ion-radio color="add" slot="start" value="male" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label style="font-size: 15px;">Female</ion-label>
+                <ion-radio color="add" slot="start" value="female" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Phone Number</ion-title>
+      <ion-item>
+        <ion-input type="number" placeholder="Phone Number" [(ngModel)]="therapistData.phone_number"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Email</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Email" [(ngModel)]="therapistData.therapist_email_id"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Address</ion-title>
+      <ion-item>
+        <ion-textarea placeholder="Address" rows="2" [(ngModel)]="therapistData.address_line_1"></ion-textarea>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">City</ion-title>
+      <ion-item>
+        <ion-input placeholder="City" [(ngModel)]="therapistData.city"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">State</ion-title>
+      <ion-item>
+        <ion-input placeholder="State" [(ngModel)]="therapistData.state"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Country</ion-title>
+      <ion-item>
+        <ion-input placeholder="Country" [(ngModel)]="therapistData.country"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Pincode</ion-title>
+      <ion-item>
+        <ion-input placeholder="Pincode" [(ngModel)]="therapistData.pincode"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="color: white; --background: #258383" (click)="createTherapist()">
+    <div class="ion-text-center">
+      <ion-title style="font-weight: 600;">Create</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-footer>

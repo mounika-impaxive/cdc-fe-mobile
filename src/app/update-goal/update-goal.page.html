@@ -1,0 +1,128 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #258383">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600;" color="light">Update Goal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/manage-goals">
+        <ion-icon color="light" name="chevron-back-outline"></ion-icon>
+        <ion-text color="light">Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-padding">
+    <ion-col size="12">
+      <ion-title class="title">Goal Name</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Goal Name" value="Need to cross obstacles by looking downwards effortlessly"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Assign Goal To</ion-title>
+      <ion-item>
+        <ionic-selectable
+        placeholder="Select a student"
+        [(ngModel)]="port"
+        [items]="ports"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true"
+        (onChange)="portChange($event)">
+      </ionic-selectable>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-item>
+        <ion-datetime mode="ios" value="2021-02-01T15:43:40.394Z" placeholder="Start Date"></ion-datetime>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      <ion-item>
+        <ion-datetime mode="ios" value="2021-02-20T15:43:40.394Z" placeholder="Target Date"></ion-datetime>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" style="padding-left: 0px;">
+      <ion-list>
+        <ion-radio-group value="yes">
+          <ion-row class="mile">
+            <ion-col>
+              <ion-item>
+                <ion-label class="label">Milestones</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item (click)="showMile()">
+                <ion-label style="font-size: 15px;">Yes</ion-label>
+                <ion-radio color="add" slot="start" value="yes" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item (click)="clearMile()">
+                <ion-label style="font-size: 15px;">No</ion-label>
+                <ion-radio color="add" slot="start" value="no" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
+    </ion-col>
+    <div *ngIf="milestone == true" style="width: 100%;">
+      <ion-row *ngFor="let data of mileInfo; let i = index">
+        <ion-col size="11">
+          <ion-title class="title">Milestone Name</ion-title>
+          <ion-item>
+            <ion-input name="milestone_title_{{data.id}}" [(ngModel)]="data.milestone_title" placeholder="Enter Milestone Name"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="1" *ngIf="i == 0" (click)="addMile()">
+          <ion-icon name="add-outline" size="large" style="margin-top: 12px; color: #258383;"></ion-icon>
+        </ion-col>
+        <ion-col size="1" *ngIf="i != 0" (click)="removeMile(i)">
+          <ion-icon name="close-outline" size="large" style="margin-top: 12px; color: #258383;"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-datetime mode="ios" name="start_date_{{data.id}}" [(ngModel)]="data.start_date" placeholder="Start Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-datetime mode="ios" name="target_date_{{data.id}}" [(ngModel)]="data.target_date" placeholder="Target Date"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="5.5">
+        <ion-buttons style="justify-content: center;">
+          <ion-button (click)="updateGoal()">
+            <ion-icon style="color: #258383;" name="checkmark-circle-outline"></ion-icon>
+            <ion-text style="color: #258383; margin-left: 5px;"> Update</ion-text>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col size="1">
+        <div class="ion-text-center">
+          <ion-text style="vertical-align: -webkit-baseline-middle;">|</ion-text>
+        </div>
+      </ion-col>
+      <ion-col size="5.5">
+        <ion-buttons style="justify-content: center;">
+          <ion-button>
+            <ion-icon color="danger" name="close-circle-outline"></ion-icon>
+            <ion-text color="danger" style="margin-left: 5px;"> Delete</ion-text>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

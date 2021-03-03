@@ -1,0 +1,121 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #258383">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600;" color="light">Update Student</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/manage-children">
+        <ion-icon color="light" name="chevron-back-outline"></ion-icon>
+        <ion-text color="light">Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-padding">
+    <ion-col size="12">
+      <ion-title class="title">Name</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Student Name" value="K CHIDRUP HRISHIKESH"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">DOB</ion-title>
+      <ion-item>
+        <ion-datetime mode="ios" name="dob" placeholder="Student DOB" value="2017-09-23T15:03:46.789"></ion-datetime>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" style="padding-left: 0px;">
+      <ion-list>
+        <ion-radio-group>
+          <ion-row class="mile">
+            <ion-col>
+              <ion-item>
+                <ion-label class="label">Gender</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label style="font-size: 15px;">Male</ion-label>
+                <ion-radio color="add" slot="start" value="male" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label style="font-size: 15px;">Female</ion-label>
+                <ion-radio color="add" slot="start" value="female" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Parent Name</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Parent Name" value="Sai Balaji"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Email</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Parent Email" value="saibalaji@gmail.com"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Phone Number</ion-title>
+      <ion-item>
+        <ion-input type="number" placeholder="Phone Number" value="8765432190"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Complaints</ion-title>
+      <ion-item>
+        <ion-textarea placeholder="Complaints"></ion-textarea>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Suggested Therapy</ion-title>
+      <ion-item>
+        <ionic-selectable
+        placeholder="Select therapy"
+        [(ngModel)]="therapy"
+        [items]="therapies"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true">
+      </ionic-selectable>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="5.5">
+        <ion-buttons style="justify-content: center;">
+          <ion-button>
+            <ion-icon style="color: #258383;" name="checkmark-circle-outline"></ion-icon>
+            <ion-text style="color: #258383; margin-left: 5px;"> Update</ion-text>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col size="1">
+        <div class="ion-text-center">
+          <ion-text style="vertical-align: -webkit-baseline-middle;">|</ion-text>
+        </div>
+      </ion-col>
+      <ion-col size="5.5">
+        <ion-buttons style="justify-content: center;">
+          <ion-button>
+            <ion-icon color="danger" name="close-circle-outline"></ion-icon>
+            <ion-text color="danger" style="margin-left: 5px;"> Delete</ion-text>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

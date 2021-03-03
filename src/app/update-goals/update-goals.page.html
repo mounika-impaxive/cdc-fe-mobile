@@ -1,0 +1,95 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #258383">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600;" color="light">Progress Update</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home">
+        <ion-icon color="light" name="chevron-back-outline"></ion-icon>
+        <ion-text color="light">Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-padding">
+    <ion-col size="12">
+      <ion-item>
+        <ion-datetime mode="ios" placeholder="Select Date"></ion-datetime>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Students</ion-title>
+      <ion-item>
+        <ionic-selectable
+        placeholder="Select a student"
+        [(ngModel)]="port"
+        [items]="ports"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true"
+        (onChange)="portChange($event)">
+      </ionic-selectable>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Therapy</ion-title>
+      <ion-item>
+        <ionic-selectable
+        placeholder="Select therapy"
+        [(ngModel)]="therapy"
+        [items]="therapies"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true">
+      </ionic-selectable>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Goals</ion-title>
+      <ion-item>
+        <ionic-selectable
+        placeholder="Select goal"
+        [(ngModel)]="goal"
+        [items]="goals"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true">
+      </ionic-selectable>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" class="range">
+      <ion-title class="title">Milestones</ion-title>
+      <ion-item>
+        <ion-label>Milestone 1</ion-label>
+        <ion-range min="0" max="100" value="20" color="add" (ionChange)="range($event)">
+          <ion-text slot="end">{{rangeVal}}</ion-text>
+        </ion-range>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" class="range">
+      <ion-title class="title">Goal Progress Percentage</ion-title>
+      <ion-item>
+        <ion-range min="0" max="100" value="30" color="add" (ionChange)="goalrange($event)">
+          <ion-text slot="end">{{goalVal}}</ion-text>
+        </ion-range>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Therapist Comments</ion-title>
+      <ion-item>
+        <ion-textarea placeholder="Therapist Comments"></ion-textarea>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="color: white; --background: #258383">
+    <div class="ion-text-center">
+      <ion-title style="font-weight: 600;">Update</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-footer>

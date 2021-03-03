@@ -1,0 +1,33 @@
+ion-fab-button {
+  margin-left: 140px;
+  overflow: visible;
+  position: relative;
+}
+ion-fab-list {
+  ion-label {
+    position: relative;
+    top: 40px;
+    right: 25px;
+    color: white;
+    background-color: #258383;
+    line-height: 24px;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+}
+ion-fab {
+  ion-badge {
+    position: relative;
+    top: 10px;
+    left: 140px;
+  }
+}
+
+.ion-color-add {
+  --ion-color-base: #258383 !important;
+  --ion-color-base-rgb: var(--ion-color-add-rgb, 34, 36, 40) !important;
+  --ion-color-contrast: var(--ion-color-add-contrast, #fff) !important;
+  --ion-color-contrast-rgb: var(--ion-color-add-contrast-rgb, 255, 255, 255) !important;
+  --ion-color-shade: #258383 !important;
+  --ion-color-tint: #258383 !important;
+}

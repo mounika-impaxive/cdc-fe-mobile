@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600; color: #258383;">Students</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        <ion-text>Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item routerLink="/update-children">
+      <ion-label>
+        <h2 style="color: #258383;">Student 1</h2>
+        <p>Some Text</p>
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item routerLink="/update-children">
+      <ion-label>
+        <h2 style="color: #258383;">Student 2</h2>
+        <p>Some Text</p>
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item routerLink="/update-children">
+      <ion-label>
+        <h2 style="color: #258383;">Student 3</h2>
+        <p>Some Text</p>
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

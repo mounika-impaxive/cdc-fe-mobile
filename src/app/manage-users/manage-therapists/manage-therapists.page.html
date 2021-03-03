@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600; color: #258383;">Therapists</ion-title>
+    <ion-buttons slot="end" routerLink="/home">
+      <ion-button routerLink="/home">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        <ion-text>Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let therapist of therapists">
+      <ion-item routerLink="/update-therapists/{{therapist.correl_id}}">
+        <ion-label>
+          <h2 style="color: #258383;">{{therapist.name}}</h2>
+          <p>{{therapist.specialisation}}</p>
+        </ion-label>
+        <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

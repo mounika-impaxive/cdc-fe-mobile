@@ -1,0 +1,61 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+ion-fab-button {
+  margin-left: 140px;
+  overflow: visible;
+  position: relative;
+}
+ion-fab-list {
+  ion-label {
+    position: relative;
+    top: 40px;
+    right: 25px;
+    color: white;
+    background-color: #258383;
+    line-height: 24px;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+}
+ion-fab {
+  ion-badge {
+    position: relative;
+    top: 10px;
+    left: 140px;
+  }
+}
+
+.ion-color-add {
+  --ion-color-base: #258383 !important;
+  --ion-color-base-rgb: var(--ion-color-add-rgb, 34, 36, 40) !important;
+  --ion-color-contrast: var(--ion-color-add-contrast, #fff) !important;
+  --ion-color-contrast-rgb: var(--ion-color-add-contrast-rgb, 255, 255, 255) !important;
+  --ion-color-shade: #258383 !important;
+  --ion-color-tint: #258383 !important;
+}

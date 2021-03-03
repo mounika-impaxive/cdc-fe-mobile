@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600; color: #258383;">Goals</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+        <ion-text>Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-fab horizontal="end" vertical="bottom" slot="fixed">
+  <ion-fab-button color="add">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button color="light" (click)="addgoal()">
+      <ion-icon name="bulb"></ion-icon>
+    </ion-fab-button>
+    <ion-label (click)="addgoal()">Goal</ion-label>
+  </ion-fab-list>
+</ion-fab>
+
+<ion-content>
+  <ion-list>
+    <ion-item routerLink="/update-goal">
+      <ion-label>
+        <h2 style="color: #258383;">Goal 1</h2>
+        <p>Description</p>
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item routerLink="/update-goal">
+      <ion-label>
+        <h2 style="color: #258383;">Goal 2</h2>
+        <p>Description</p>
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    <ion-item routerLink="/update-goal">
+      <ion-label>
+        <h2 style="color: #258383;">Goal 3</h2>
+        <p>Description</p>
+      </ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

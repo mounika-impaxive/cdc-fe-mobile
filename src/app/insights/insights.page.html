@@ -1,0 +1,186 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #258383">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600; color: #ffffff;">Insights</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home">
+        <ion-icon color="light" name="chevron-back-outline"></ion-icon>
+        <ion-text color="light">Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-padding">
+    <ion-col size="12" *ngIf="list == true">
+      <ion-title class="title">Select Student</ion-title>
+      <ion-item>
+        <ionic-selectable
+        placeholder="Select a student"
+        [(ngModel)]="student"
+        [items]="students"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true"
+        (onChange)="portChange($event)">
+      </ionic-selectable>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-list class="ion-padding" *ngIf="list == false">
+    <ion-row>
+      <ion-col size="4">
+        <ion-text style="color: #258383; font-weight: 600;">Name</ion-text>
+      </ion-col>
+      <ion-col size="8">
+        <ion-text>{{studentName}}</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-top">
+      <ion-col size="4">
+        <ion-text style="color: #258383; font-weight: 600;">Therapy</ion-text>
+      </ion-col>
+      <ion-col size="8">
+        <ion-text>Physiotherapy</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-top">
+      <ion-col size="4">
+        <ion-text style="color: #258383; font-weight: 600;">Goal</ion-text>
+      </ion-col>
+      <ion-col size="8">
+        <ion-text>Need to cross obstacles by looking downwards effortlessly</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <ion-row class="ion-padding">
+    <ion-col size="12">
+      <div [ngClass]="{'show': list == true}" class="ion-text-center">
+        <ion-label style="color: #258383; font-weight: 600;">Goal Progress</ion-label>
+        <canvas #lineCanvas style="height: 100%; margin-top: 10px;"></canvas>
+      </div>
+    </ion-col>
+    <ion-col size="12" *ngIf="list == false">
+      <ion-row (click)="comment = !comment">
+        <ion-col>
+          <ion-title class="title">Therapist Comments</ion-title>
+        </ion-col>
+        <ion-col>
+          <div class="ion-text-right">
+            <ion-icon style="margin-top: 10px;" name="caret-up-outline" *ngIf="comment == true"></ion-icon>
+            <ion-icon style="margin-top: 10px;" name="caret-down-outline" *ngIf="comment == false"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+      <div class="ion-padding box" *ngIf="comment == true">
+        <div class="ion-margin-bottom">
+          <ion-row>
+            <ion-col size="3">
+              <ion-text>Jan 15</ion-text>
+            </ion-col>
+            <ion-col size="9">
+              <ion-text>Comments 1</ion-text>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div class="ion-margin-bottom">
+          <ion-row>
+            <ion-col size="3">
+              <ion-text>Jan 30</ion-text>
+            </ion-col>
+            <ion-col size="9">
+              <ion-text>Comments 2</ion-text>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div>
+          <ion-row>
+            <ion-col size="3">
+              <ion-text>Feb 15</ion-text>
+            </ion-col>
+            <ion-col size="9">
+              <ion-text>Comments 3</ion-text>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col size="12" *ngIf="list == false">
+      <ion-row (click)="pcomment = !pcomment">
+        <ion-col>
+          <ion-title class="title">Parent Comments</ion-title>
+        </ion-col>
+        <ion-col>
+          <div class="ion-text-right">
+            <ion-icon style="margin-top: 10px;" name="caret-up-outline" *ngIf="pcomment == true"></ion-icon>
+            <ion-icon style="margin-top: 10px;" name="caret-down-outline" *ngIf="pcomment == false"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+      <div class="ion-padding box" *ngIf="pcomment == true">
+        <div class="ion-margin-bottom">
+          <ion-row>
+            <ion-col size="3">
+              <ion-text>Jan 15</ion-text>
+            </ion-col>
+            <ion-col size="9">
+              <ion-text>Comments 1</ion-text>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div class="ion-margin-bottom">
+          <ion-row>
+            <ion-col size="3">
+              <ion-text>Jan 30</ion-text>
+            </ion-col>
+            <ion-col size="9">
+              <ion-text>Comments 2</ion-text>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div>
+          <ion-row>
+            <ion-col size="3">
+              <ion-text>Feb 15</ion-text>
+            </ion-col>
+            <ion-col size="9">
+              <ion-text>Comments 3</ion-text>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer *ngIf="list == false">
+  <ion-toolbar style="--background: #258383">
+    <ion-row>
+      <ion-col size="5.5">
+        <ion-buttons style="justify-content: center;">
+          <ion-button>
+            <ion-icon style="color: #ffffff;" name="checkmark-outline"></ion-icon>
+            <ion-text style="color: #ffffff; margin-left: 5px;"> Update</ion-text>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col size="1">
+        <div class="ion-text-center">
+          <ion-text style="vertical-align: -webkit-baseline-middle; color: #ffffff;">|</ion-text>
+        </div>
+      </ion-col>
+      <ion-col size="5.5">
+        <ion-buttons style="justify-content: center;">
+          <ion-button>
+            <ion-icon style="color: #ffffff;" name="share-social-outline"></ion-icon>
+            <ion-text style="color: #ffffff; margin-left: 5px;"> Share</ion-text>
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #258383">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title style="text-align: center; font-weight: 600;" color="light">Create Student</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/home">
+        <ion-icon color="light" name="chevron-back-outline"></ion-icon>
+        <ion-text color="light">Back</ion-text>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="ion-padding">
+    <ion-col size="12">
+      <ion-title class="title">Name</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Student Name"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">DOB</ion-title>
+      <ion-item>
+        <ion-datetime mode="ios" name="dob" [(ngModel)]="birthdate" (ionChange)="getAge()" placeholder="Student DOB"></ion-datetime>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12" style="padding-left: 0px;">
+      <ion-list>
+        <ion-radio-group>
+          <ion-row class="mile">
+            <ion-col>
+              <ion-item>
+                <ion-label class="label">Gender</ion-label>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label style="font-size: 15px;">Male</ion-label>
+                <ion-radio color="add" slot="start" value="male" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label style="font-size: 15px;">Female</ion-label>
+                <ion-radio color="add" slot="start" value="female" mode="md"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-radio-group>
+      </ion-list>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Parent Name</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Parent Name"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Email</ion-title>
+      <ion-item>
+        <ion-input placeholder="Enter Parent Email"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Phone Number</ion-title>
+      <ion-item>
+        <ion-input type="number" placeholder="Phone Number"></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Complaints</ion-title>
+      <ion-item>
+        <ion-textarea placeholder="Complaints" rows="3"></ion-textarea>
+      </ion-item>
+    </ion-col>
+    <ion-col size="12">
+      <ion-title class="title">Suggested Therapy</ion-title>
+      <ion-item>
+        <ionic-selectable
+        placeholder="Select therapy"
+        [(ngModel)]="therapy"
+        [items]="therapies"
+        itemValueField="id"
+        itemTextField="name"
+        [canSearch]="true">
+      </ionic-selectable>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar style="color: white; --background: #258383">
+    <div class="ion-text-center">
+      <ion-title style="font-weight: 600;">Create</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-footer>
